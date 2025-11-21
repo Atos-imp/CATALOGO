@@ -12,10 +12,13 @@
 /* Estilos Gerais e Topo */
 /* ------------------------------------- */
 .logo-francal {
-    width: 500px;
-    height: 200px;
-    /* Linha que carrega o seu logotipo no HTML */
-    background-image: url('logotipo-atos.png');
+    width: 500px; /* Ajuste o tamanho da largura */
+    height: 300px; /* Ajuste o tamanho da altura (manter proporção é bom) */
+    /* *** LINHA CORRIGIDA PARA HOSPEDAGEM EXTERNA (GitHub Pages, etc.) ***
+    O "./" garante que ele procure a imagem na pasta raiz.
+    Caso não funcione, use o caminho absoluto: url('/NOME-DO-REPOSITORIO/logotipo-atos.png')
+    */
+    background-image: url('./logotipo-atos.png'); 
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -38,7 +41,7 @@ body {
     gap: 12px;
     width: 100%;
     background-color: #002556;
-    padding: 10px 0;
+    padding: 5px 0;
     margin-top: 0;
     position: relative;
 }
