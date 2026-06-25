@@ -9,11 +9,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
         <style>
             :root {
-                --primary: #009c3b; /* Verde Bandeira */
-                --secondary: #ffdf00; /* Amarelo Canarinho */
-                --accent: #002776; /* Azul Marinho Brasil */
-                --success: #007a2e; /* Verde Escuro para Preço */
-                --bg: #f4f9f4; /* Fundo suave esverdeado */
+                --primary: #009c3b; 
+                --secondary: #ffdf00; 
+                --accent: #002776; 
+                --success: #007a2e; 
+                --bg: #f4f9f4; 
                 --white: #ffffff;
                 --text-muted: #555555;
             }
@@ -23,71 +23,46 @@
                 font-family: 'Poppins', sans-serif; 
                 background-color: var(--bg); 
                 margin: 0; 
-                padding-bottom: 120px; /* Espaço extra para a barrinha não cobrir o conteúdo */
+                padding-bottom: 150px; /* Dá espaço para o anúncio automático no rodapé */
                 color: #111;
             }
 
             /* Header Copa do Mundo */
             .header { 
                 background: linear-gradient(135deg, var(--primary) 0%, #006b28 100%); 
-                color: white; 
-                padding: 20px 15px 10px; 
-                position: sticky; 
-                top: 0; 
-                z-index: 1000; 
-                box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-                border-bottom: 4px solid var(--secondary);
+                color: white; padding: 20px 15px 10px; position: sticky; top: 0; z-index: 1000; 
+                box-shadow: 0 4px 15px rgba(0,0,0,0.15); border-bottom: 4px solid var(--secondary);
             }
-            .header h1 { 
-                margin: 0 0 15px; 
-                font-size: 20px; 
-                text-align: center; 
-                letter-spacing: 1.5px;
-                font-weight: 700;
-                text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-            }
-            .header h1 i {
-                color: var(--secondary);
-                margin: 0 5px;
-            }
+            .header h1 { margin: 0 0 15px; font-size: 20px; text-align: center; font-weight: 700; text-shadow: 1px 1px 3px rgba(0,0,0,0.4); }
+            .header h1 i { color: var(--secondary); margin: 0 5px; }
 
             .busca-container { background: rgba(0,0,0,0.15); padding: 12px; border-radius: 15px; }
             .input-wrapper { position: relative; display: flex; align-items: center; }
             .input-wrapper i { position: absolute; left: 15px; color: var(--primary); }
-            #inputBusca { 
-                width: 100%; padding: 12px 12px 12px 40px; border-radius: 12px; border: none; font-size: 14px; background: var(--white); outline: none;
-            }
+            #inputBusca { width: 100%; padding: 12px 12px 12px 40px; border-radius: 12px; border: none; font-size: 14px; background: var(--white); outline: none; }
 
             .filtros-tamanho { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 0 5px; }
-            .filtros-tamanho label { font-size: 11px; font-weight: 600; color: #fff; letter-spacing: 0.5px; }
+            .filtros-tamanho label { font-size: 11px; font-weight: 600; color: #fff; }
             .filtros-tamanho input { width: 65px; padding: 5px; border-radius: 8px; border: 2px solid var(--secondary); text-align: center; font-size: 12px; outline: none; }
 
             .filtros-abas { display: flex; overflow-x: auto; gap: 8px; padding: 15px 0 5px; scrollbar-width: none; }
             .filtros-abas::-webkit-scrollbar { display: none; }
-            .btn-filtro { padding: 8px 18px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.4); background: transparent; color: white; white-space: nowrap; font-size: 12px; cursor: pointer; transition: all 0.2s; }
-            .btn-filtro.active { background: var(--secondary); color: var(--accent); font-weight: 700; border-color: var(--secondary); box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+            .btn-filtro { padding: 8px 18px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.4); background: transparent; color: white; white-space: nowrap; font-size: 12px; cursor: pointer; }
+            .btn-filtro.active { background: var(--secondary); color: var(--accent); font-weight: 700; border-color: var(--secondary); }
 
             /* Grid */
             .container { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 15px; padding: 15px; }
             @media (max-width: 400px) { .container { grid-template-columns: 1fr; } }
 
-            .card { 
-                background: var(--white); border-radius: 18px; overflow: hidden; display: flex; align-items: stretch; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #e2ebe2; transition: transform 0.2s;
-            }
-            .card:hover { transform: translateY(-2px); }
-
-            .card-foto { 
-                width: 130px; min-width: 130px; background: #fff; display: flex; align-items: center; justify-content: center; padding: 10px; border-right: 1px solid #f0f0f0; position: relative; cursor: zoom-in;
-            }
+            .card { background: var(--white); border-radius: 18px; overflow: hidden; display: flex; align-items: stretch; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #e2ebe2; }
+            .card-foto { width: 130px; min-width: 130px; background: #fff; display: flex; align-items: center; justify-content: center; padding: 10px; position: relative; cursor: zoom-in; }
             .card-foto img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
-            .btn-favorito { 
-                position: absolute; top: 8px; left: 8px; background: rgba(255,255,255,0.9); border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; z-index: 5; color: #ccc; border: 1px solid #eee; transition: all 0.2s;
-            }
+            .btn-favorito { position: absolute; top: 8px; left: 8px; background: rgba(255,255,255,0.9); border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; z-index: 5; color: #ccc; border: 1px solid #eee; }
             .btn-favorito.active { color: #ffbc00; border-color: #ffbc00; background: var(--accent); }
 
             .card-detalhes { flex: 1; padding: 12px; display: flex; flex-direction: column; }
-            .ref-categoria { font-size: 9px; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+            .ref-categoria { font-size: 9px; color: var(--accent); font-weight: 700; text-transform: uppercase; }
             .titulo-produto { font-size: 13px; font-weight: 600; margin: 2px 0; color: #222; }
             .preco-produto { font-size: 15px; color: var(--success); font-weight: 700; margin-bottom: 8px; }
 
@@ -97,30 +72,38 @@
             .badge-item .tam { font-size: 11px; font-weight: 700; color: #111; display: block; }
             .badge-item .qtd { font-size: 9px; color: var(--accent); font-weight: 600; display: block; }
 
-            #zoomModal {
-                display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); justify-content: center; align-items: center; overflow: hidden;
-            }
-            #zoomModal img {
-                max-width: 95%; max-height: 95%; transition: transform 0.3s ease; cursor: grab;
-            }
-            .close-zoom {
-                position: absolute; top: 20px; right: 20px; color: white; font-size: 30px; cursor: pointer; z-index: 10000;
-            }
-            .zoom-hint {
-                position: absolute; bottom: 20px; color: white; font-size: 12px; background: rgba(0,0,0,0.5); padding: 5px 15px; border-radius: 20px;
-            }
+            #zoomModal { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); justify-content: center; align-items: center; }
+            #zoomModal img { max-width: 95%; max-height: 95%; }
+            .close-zoom { position: absolute; top: 20px; right: 20px; color: white; font-size: 30px; cursor: pointer; }
 
             .btn-relatorio { 
-                position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; padding: 15px 30px; border-radius: 30px; font-weight: 600; border: 2px solid var(--secondary); z-index: 1000; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 25px rgba(0,39,118,0.3); cursor: pointer; transition: transform 0.2s;
+                position: fixed; bottom: 115px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; padding: 10px 20px; border-radius: 30px; font-weight: 600; border: 2px solid var(--secondary); z-index: 1000; display: flex; align-items: center; gap: 10px; box-shadow: 0 5px 15px rgba(0,39,118,0.3); cursor: pointer; font-size: 12px;
             }
-            .btn-relatorio:active { transform: translateX(-50%) scale(0.95); }
+
+            /* 🖥️ CONTAINER DO ANÚNCIO FORÇADO AUTOMÁTICO 🖥️ */
+            .container-ads-automatico {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100px;
+                background: #fff;
+                box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
+                z-index: 999999;
+                border-top: 5px solid var(--primary);
+                overflow: hidden;
+            }
+            .container-ads-automatico iframe {
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
         </style>
     </head>
     <body>
         <div id="zoomModal">
             <span class="close-zoom" onclick="closeZoom()">&times;</span>
-            <img id="imgZoomed" src="" alt="Zoom">
-            <div class="zoom-hint">Use dois dedos para pinça ou role para zoom</div>
+            <img id="imgZoomed" src="">
         </div>
 
         <div class="header">
@@ -28714,18 +28697,19 @@
             <i class="fa-solid fa-star"></i> MEUS SELECIONADOS
         </button>
 
+        <div class="container-ads-automatico">
+            <iframe src="https://omg10.com/4/11200873"></iframe>
+        </div>
+
         <script>
             let categoriaAtual = 'Todos';
             let apenasFavoritos = false;
-            let scale = 1;
 
             function openZoom(url) {
                 const modal = document.getElementById('zoomModal');
                 const img = document.getElementById('imgZoomed');
                 img.src = url;
                 modal.style.display = 'flex';
-                scale = 1;
-                img.style.transform = `scale(${scale})`;
                 document.body.style.overflow = 'hidden';
             }
 
@@ -28733,14 +28717,6 @@
                 document.getElementById('zoomModal').style.display = 'none';
                 document.body.style.overflow = 'auto';
             }
-
-            const imgZoomed = document.getElementById('imgZoomed');
-            document.getElementById('zoomModal').addEventListener('wheel', (e) => {
-                e.preventDefault();
-                scale += e.deltaY * -0.001;
-                scale = Math.min(Math.max(.5, scale), 4);
-                imgZoomed.style.transform = `scale(${scale})`;
-            }, {passive: false});
 
             function setCategoria(cat, btn) {
                 document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('active'));
@@ -28760,15 +28736,10 @@
                     let searchContent = card.getAttribute('data-search').toLowerCase();
                     let cat = card.getAttribute('data-cat');
                     let idCard = card.getAttribute('data-id');
-
                     let tams = card.getAttribute('data-tamanhos').split(',').map(t => parseInt(t.trim()) || 0);
                     let temTamanhoRange = tams.some(t => t >= min && t <= max);
 
-                    let atendeBusca = searchContent.includes(busca);
-                    let atendeCat = (categoriaAtual === 'Todos' || cat === categoriaAtual);
-                    let atendeFav = !apenasFavoritos || favoritos.includes(idCard);
-
-                    if (atendeBusca && atendeCat && atendeFav && temTamanhoRange) {
+                    if (searchContent.includes(busca) && (categoriaAtual === 'Todos' || cat === categoriaAtual) && (!apenasFavoritos || favoritos.includes(idCard)) && temTamanhoRange) {
                         card.style.display = 'flex';
                     } else {
                         card.style.display = 'none';
@@ -28778,21 +28749,15 @@
 
             function toggleFavorito(id, btn) {
                 let favoritos = JSON.parse(localStorage.getItem('meusFavoritos') || '[]');
-                if (favoritos.includes(id)) { 
-                    favoritos = favoritos.filter(f => f !== id); 
-                    btn.classList.remove('active'); 
-                } else { 
-                    favoritos.push(id); 
-                    btn.classList.add('active'); 
-                }
+                if (favoritos.includes(id)) { favoritos = favoritos.filter(f => f !== id); btn.classList.remove('active'); }
+                else { favoritos.push(id); btn.classList.add('active'); }
                 localStorage.setItem('meusFavoritos', JSON.stringify(favoritos));
                 if (apenasFavoritos) filtrarGeral();
             }
 
             function toggleRelatorio() {
                 apenasFavoritos = !apenasFavoritos;
-                let btn = document.getElementById('btnRel');
-                btn.innerHTML = apenasFavoritos ? '<i class="fa-solid fa-arrow-left"></i> VER TODOS' : '<i class="fa-solid fa-star"></i> MEUS SELECIONADOS';
+                document.getElementById('btnRel').innerHTML = apenasFavoritos ? '<i class="fa-solid fa-arrow-left"></i> VER TODOS' : '<i class="fa-solid fa-star"></i> MEUS SELECIONADOS';
                 filtrarGeral();
             }
 
@@ -28804,10 +28769,6 @@
                 });
             };
         </script>
-
-        
-<script src="https://alwingulla.com/act/files/micro.tag.min.js?z=11200873" async></script>
-
     </body>
     </html>
     
